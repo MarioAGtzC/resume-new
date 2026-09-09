@@ -9,7 +9,7 @@ import type { ProfileData } from '../../../types/profile';
 const profileData = profileJson as ProfileData;
 
 export default function Profile() {
-  const { name, tagline, cvPath, typewriterWords, socialLinks } = profileData;
+  const { name, tagline, cvPath, typewriterWords, socialLinks, cvDownload } = profileData;
   return (
     <section className='profile-container' aria-label='Hero'>
       <div className='profile-parent'>
@@ -46,7 +46,7 @@ export default function Profile() {
             <button className='btn primary-btn' onClick={() => ScrollService.scrollHandler.scrollToHireMe()}>Hire Me</button>
             <a
               href={cvPath}
-              download={cvPath}
+              download={cvDownload}
               className='btn highlighted-btn'
             >Get Resume</a>
           </div>

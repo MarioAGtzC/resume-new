@@ -8,7 +8,7 @@ import type { ProfileData } from '../../types/profile';
 import './AboutMe.css';
 
 const aboutData = aboutJson as AboutData;
-const { cvPath } = profileJson as ProfileData;
+const { cvPath, cvDownload } = profileJson as ProfileData;
 
 export default function AboutMe({id}: SectionProps) {
   const renderHighlight = () => {
@@ -43,7 +43,7 @@ export default function AboutMe({id}: SectionProps) {
               >Hire Me</button>
               <a
                 href={cvPath}
-                download={cvPath}
+                download={cvDownload}
                 className='btn highlighted-btn'
               >
                 Get Resume

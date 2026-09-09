@@ -1,0 +1,134 @@
+\documentclass[10pt,letterpaper]{article}
+
+% ---------- Paquetes ----------
+\usepackage[margin=0.55in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+% ---------- Fuente ----------
+\setmainfont{Latin Modern Sans}
+
+% ---------- Colores ----------
+\definecolor{darkgray}{RGB}{40,40,40}
+\definecolor{accent}{RGB}{20,60,110}
+
+% ---------- Config de hipervínculos ----------
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent
+}
+
+% ---------- Estilo de títulos de sección ----------
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-4pt}{\color{accent}\hrule height 1pt}\vspace{1pt}]
+\titlespacing{\section}{0pt}{6pt}{2pt}
+
+% ---------- Sin numeración de página ----------
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+
+% ---------- Listas compactas ----------
+\setlist[itemize]{leftmargin=1.1em, itemsep=0pt, topsep=1pt, parsep=0pt}
+\setlength{\emergencystretch}{2em}
+
+\begin{document}
+
+% ================= ENCABEZADO =================
+\begin{center}
+    {\Large \bfseries \color{darkgray} MARIO ALBERTO GUTIÉRREZ COVIÁN}\\[2pt]
+    {Full Stack Software Engineer}\\[4pt]
+    \small
+    +52 (312) 103 1850 \;$\vert$\;
+    \href{mailto:marioagtzc@hotmail.com}{marioagtzc@hotmail.com} \;$\vert$\;
+    \href{https://github.com/MarioAGtzC}{GitHub} \;$\vert$\;
+    \href{https://www.linkedin.com/in/marioagtz/}{LinkedIn} \;$\vert$\;
+    \href{https://bold.pro/my/mario-gutirrez}{Profile}
+\end{center}
+
+% ================= RESUMEN PROFESIONAL =================
+\section*{Professional Summary}
+Software development with experience in backend APIs and microservices using Node.js.
+Experienced in designing and deploying serverless architectures on AWS, using services like
+Lambda, Lex, API Gateway, DynamoDB, S3 and CloudWatch. Comfortable working with both SQL
+and NoSQL databases.
+
+% ================= LOGROS CLAVE =================
+\section*{Key Achievements}
+\begin{itemize}
+    \item Implemented Amazon Lex conversational bots integrated with Connect and Lambda, automating customer interactions and reducing manual support workload.
+    \item Enhanced IVR call flows and routing logic in Amazon Connect, improving user experience and reducing call handling time.
+    \item Led backend improvements and bug fixes that increased system stability and reduced production issues.
+    \item Collaborated on full-stack features using React and Redux, improving data flow efficiency and frontend performance.
+    \item Built a Python/Django microservice that generated vector embeddings from unstructured files, enabling semantic search and improving search result relevance while reducing query response time through optimized data retrieval.
+\end{itemize}
+
+% ================= HABILIDADES TÉCNICAS =================
+\section*{Technical Skills}
+\begin{itemize}
+    \item \textbf{Languages:} TypeScript (4 years), JavaScript (5 years), Python (2 years), Java (1 year)
+    \item \textbf{Backend:} Node.js, Express.js, Nest.js, REST APIs, Django
+    \item \textbf{Frontend:} React.js, Next.js, Redux, Tailwind CSS, HTML5, CSS3
+    \item \textbf{Databases:} MySQL, MongoDB, PostgreSQL, DynamoDB, Redis, Firebase
+    \item \textbf{Cloud \& Serverless:} AWS (Lambda, Lex, CloudWatch, API Gateway, Connect, S3), Docker
+    \item \textbf{Other:} Git, Postman, Swagger, Agile/Scrum, Microservices Architecture, AI (GitHub Copilot, Claude, ChatGPT)
+\end{itemize}
+
+% ================= EXPERIENCIA PROFESIONAL =================
+\section*{Professional Experience}
+
+\textbf{Backend Software Engineer} \hfill \textit{April 2022 -- Current}\\
+\textit{TechBridge IT | Remote}
+\begin{itemize}
+    \item Developed backend systems with TypeScript for robust, maintainable software.
+    \item Designed and implemented Lex bots to enhance customer experience.
+    \item Managed Lambda updates for better performance and scalability.
+    \item Optimized call routing and workflows in Connect.
+    \item Conducted performance analysis and testing on the Connect platform.
+    \item Provided bilingual support and refined Spanish language options.
+    \item Microservices maintenance in Python and Java.
+    \item Managed an AI-powered context management microservice utilizing AWS Bedrock to automatically generate intelligent summaries of chat conversations between guests and agents.
+\end{itemize}
+
+\vspace{1pt}
+\textbf{Full-Stack Developer} \hfill \textit{November 2020 -- April 2022}\\
+\textit{Tata Consultancy Services | Remote}
+\begin{itemize}
+    \item Collaborated with front-end developers to design functional, cohesive code, enhancing user experience.
+    \item Conducted data analysis to create efficient APIs for seamless system communication.
+    \item Built new sections with React templates, optimizing data retrieval from AWS APIs using Redux.
+    \item Set up development and production environments with AWS toolsets for streamlined deployment and scalability.
+    \item Designed and managed database structures to ensure smooth information flow and data integrity.
+\end{itemize}
+
+\vspace{1pt}
+\textbf{Full-Stack Web Developer} \hfill \textit{February 2020 -- November 2020}\\
+\textit{Kioscomático | On-site, Colima}
+\begin{itemize}
+    \item Developed and maintained web applications with PHP and Node.js, focusing on performance, security, and scalability.
+    \item Implemented RESTful APIs using Node.js, Express, and MySQL for backend development.
+    \item Created a custom React components library to enhance code reusability and maintainability.
+    \item Utilized React Hooks and Redux for consistent state management and user interface experience.
+    \item Designed and developed mobile applications with Flutter for cross-platform compatibility.
+    \item Integrated Bloc pattern for efficient state management in Flutter applications.
+\end{itemize}
+
+% ================= EDUCACIÓN =================
+\section*{Education}
+\textbf{Bachelor of Software Engineering} \hfill \textit{Graduated August 2020}\\
+Universidad de Colima -- Facultad de Telemática
+
+% ================= IDIOMAS =================
+\section*{Languages}
+\begin{itemize}
+    \item \textbf{Spanish:} Native
+    \item \textbf{English:} Professional Working Proficiency (C1)
+\end{itemize}
+
+\end{document}

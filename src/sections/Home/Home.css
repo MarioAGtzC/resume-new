@@ -1,0 +1,13 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background);
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1200px) {
+  .home-container {
+    scroll-margin-top: 100px;
+  }
+}

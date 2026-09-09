@@ -1,0 +1,15 @@
+{
+  "description": "Backend-focused full stack developer with experience in Node.js, TypeScript, and Python, building and maintaining serverless architectures and cloud infrastructure on AWS. Solid background in REST APIs, React, and full-stack delivery. Software Engineering graduate committed to building reliable, scalable software.",
+  "highlights": {
+    "heading": "Here are a Few Highlights:",
+    "bullets": [
+      "Backend & Full Stack Development",
+      "AWS Serverless Architecture",
+      "Infrastructure as Code (Terraform)",
+      "Node.js, TypeScript & Python",
+      "Building REST APIs",
+      "Managing database",
+      "React & Redux"
+    ]
+  }
+}

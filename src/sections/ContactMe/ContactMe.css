@@ -1,0 +1,136 @@
+.main-container {
+  min-height: 85vh;
+  margin: 100px 0 -450px 0;
+  scroll-margin-top: 80px;
+}
+
+.central-form {
+  max-width: 900px;
+  padding: 10px;
+  padding-bottom: 30px;
+  display: flex;
+  box-shadow: 0 0px 20px -2px var(--background);
+  border-radius: 12px;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--background);
+}
+
+.central-form h2 {
+  color: var(--white);
+  font-family: "Poppins Bold";
+  letter-spacing: 0.2rem;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.back-form {
+  width: 100%;
+  max-width: 380px;
+  margin: 30px auto 0;
+}
+
+.central-form form {
+  width: auto;
+  display: flex;
+  color: var(--black);
+  padding: 15px;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0.9;
+  background-color: white;
+  box-shadow: 0 0px 20px -2px var(--black);
+  border-radius: 12px;
+}
+
+form p {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--primary);
+  letter-spacing: 0.1rem;
+  font-family: "Poppins Bold";
+}
+
+form label {
+  margin-bottom: 5px;
+  color: var(--black);
+  letter-spacing: 0.2rem;
+}
+
+form input,
+textarea {
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0);
+  outline: none;
+  background-color: rgba(238, 238, 238, 0.6);
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+textarea:focus {
+  border: 2px solid rgba(30, 85, 250, 0.47);
+  background-color: var(--white);
+}
+
+form input:focus {
+  border: 2px solid rgba(30, 85, 250, 0.47);
+  background-color: var(--white);
+}
+
+form button {
+  margin-top: 15px;
+  padding: 5px;
+  outline: none;
+  width: 160px;
+  color: var(--black);
+  background-color: var(--white);
+  border: 2px solid var(--white);
+  font-size: 18px;
+  border-radius: 19px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+form button:hover {
+  color: var(--white);
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  transition: all ease 0.2s;
+}
+
+button .load img {
+  width: 24px;
+}
+
+.col .icon {
+  padding: 7px;
+  color: var(--white);
+  transition: transform 0.2s ease;
+}
+
+.col .icon:hover {
+  transform: scale(1.5);
+}
+
+.spinner {
+  --fa-animation-duration: 1s;
+}
+
+@media (min-width: 576px) {
+  .central-form h2 {
+    font-size: revert;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    scroll-margin-top: 100px;
+  }
+}

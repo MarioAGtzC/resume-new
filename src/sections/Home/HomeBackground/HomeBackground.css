@@ -1,0 +1,16 @@
+.background-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.background-parent {
+  width: 100%;
+}
+
+.background-parent img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

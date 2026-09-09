@@ -1,0 +1,12 @@
+export interface SocialLink {
+  href: string;
+  label: 'LinkedIn' | 'GitHub' | 'Instagram';
+}
+
+export interface ProfileData {
+  name: string;
+  tagline: string;
+  cvPath: string;
+  typewriterWords: string[];
+  socialLinks: SocialLink[];
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Mario",
+  "tagline": "Building scalable backend systems and cloud infrastructure with AWS",
+  "cvPath": "Mario Gutierrez CV.pdf",
+  "typewriterWords": [
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "Backend Engineer",
+    "Node.js Developer",
+    "Cloud Solutions Engineer"
+  ],
+  "socialLinks": [
+    { "href": "https://www.linkedin.com/in/marioagtz/", "label": "LinkedIn" },
+    { "href": "https://github.com/MarioAGtzC/", "label": "GitHub" },
+    { "href": "https://www.instagram.com/mariogreenie/", "label": "Instagram" }
+  ]
+}

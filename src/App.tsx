@@ -1,10 +1,16 @@
+import { ToastContainer } from 'react-toastify'
 import './App.css'
-import Profile from './sections/Home/Profile/Profile'
+import SectionsContainer from './sections/SectionsContainer'
+import Header from './sections/Home/Header/Header'
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 function App() {
   return (
     <div>
-      <Profile/>
+      <Header />
+      <ToastContainer/>
+      <SectionsContainer/>
+      <ScrollToTop />
     </div>
   )
 }

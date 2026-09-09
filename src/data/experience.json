@@ -1,0 +1,32 @@
+[
+  {
+    "role": "Backend Software Engineer",
+    "company": "TechBridge IT",
+    "period": "April 2022 — Present",
+    "bullets": [
+      "Develop and maintain backend services and AI-integrated microservices on AWS.",
+      "Build and maintain IVR self-service call flows and conversational bot logic.",
+      "Managed Infrastructure as Code with Terraform for AWS deployments."
+    ]
+  },
+  {
+    "role": "Full-Stack Developer",
+    "company": "Tata Consultancy Services",
+    "period": "November 2020 — April 2022",
+    "bullets": [
+      "Built interfaces with React and Redux connected to APIs on AWS.",
+      "Designed database structures to maintain data integrity.",
+      "Collaborated with front-end teams to improve user experience."
+    ]
+  },
+  {
+    "role": "Full-Stack Web Developer",
+    "company": "Kioscomático",
+    "period": "February 2020 — November 2020",
+    "bullets": [
+      "Developed RESTful APIs with Node.js, Express, and MySQL.",
+      "Created a reusable React component library.",
+      "Built cross-platform mobile applications with Flutter."
+    ]
+  }
+]

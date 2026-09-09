@@ -1,8 +1,8 @@
 :root {
   --primary: #2f5f02;
-  --background: #24263B;
+  --background: #333333;
   --white: #eeeeee;
-  --black: #333333;
+  --black: #111111;
   --error-message: #e44f4fd1;
   --toast-error: #e44f4ffa;
   --toast-shadow: #9c9c9ce3;

@@ -1,0 +1,207 @@
+.resume-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: fit-content;
+  margin: 50px 0 0 0;
+  scroll-margin-top: 80px;
+}
+
+.resume-card-exterior {
+  overflow: hidden;
+  box-shadow: 0 0px 20px -2px var(--background);
+  border-radius: 12px;
+  width: 90%;
+  height: fit-content;
+}
+
+.resume-card {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  background-color: var(--background);
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.experience-list {
+  position: relative;
+}
+
+.experience-row {
+  display: flex;
+  gap: 28px;
+}
+
+.experience-marker-col {
+  position: relative;
+  width: 14px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.experience-line {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background-color: var(--primary);
+  opacity: 0.35;
+  transform: translateX(-50%);
+}
+
+.experience-line--up {
+  top: 0;
+  height: 12px;
+}
+
+.experience-line--down {
+  top: 12px;
+  bottom: 0;
+}
+
+.experience-marker {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.experience-content {
+  flex: 1;
+  padding-bottom: 30px;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience-role {
+  margin: 0;
+  font-size: 14px;
+  font-family: "Poppins SemiBold";
+  color: var(--white);
+}
+
+.experience-company {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  font-family: "Poppins SemiBold";
+  color: var(--primary);
+}
+
+.experience-period {
+  background-color: var(--primary);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: "Poppins SemiBold";
+  border-radius: 14px;
+  white-space: nowrap;
+}
+
+.experience-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.experience-bullets {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.experience-expand-btn {
+  
+  /* border: none;
+  color: var(--white);
+  background-color: var(--primary); */
+
+  border: none;
+  border-radius: 100%;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  align-self: flex-end;
+}
+
+.experience-bullet {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: justify;
+  color: var(--white);
+  opacity: 0.85;
+}
+
+.period-short {
+  display: inline;
+}
+
+.period-full {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .highlighted-btn {
+    z-index: initial;
+  }
+  
+  .resume-card {
+    padding: 30px;
+  }
+
+  .period-short {
+    display: none; 
+
+  }
+
+  .period-full {
+    display: inline;
+  }
+}
+
+@media (min-width: 768px) {
+  .experience-footer {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .experience-expand-btn {
+    align-self: center;
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .resume-card-exterior {
+    width: 880px;
+    height: auto;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .resume-container {
+    scroll-margin-top: 100px;
+  }
+
+  .resume-card-exterior {
+    width: 1000px;
+  }
+}

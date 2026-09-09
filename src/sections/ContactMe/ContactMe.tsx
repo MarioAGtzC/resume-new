@@ -19,6 +19,20 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
+function getInitials(name: string): string {
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+}
+
+function getWordCount(text: string): number {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
 export default function ContactMe({id}: SectionProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -50,10 +64,19 @@ export default function ContactMe({id}: SectionProps) {
     setBool(true);
 
     const templateParams = {
-      title: `Contact Form Submitted by ${name}`,
       name,
       message,
-      email
+      email,
+      initials: getInitials(name),
+      time: new Date().toLocaleString('es-MX', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      }),
+      word_count: getWordCount(message),
+      subject: `Re: Message from ${name} via website`,
+      origin: window.location.pathname,
+      device_info: navigator.userAgent,
+      ip: '', // TODO: populate server-side when migrating to a backend/API
     };
 
     const now = Date.now();

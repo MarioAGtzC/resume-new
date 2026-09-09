@@ -74,7 +74,7 @@ export default function ContactMe({id}: SectionProps) {
       }),
       word_count: getWordCount(message),
       subject: `Re: Message from ${name} via website`,
-      origin: window.location.pathname,
+      origin: window.location.href,
       device_info: navigator.userAgent,
       ip: '', // TODO: populate server-side when migrating to a backend/API
     };

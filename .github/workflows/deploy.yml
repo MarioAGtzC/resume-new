@@ -46,7 +46,7 @@ jobs:
           echo "PDF text extraction check passed ($(echo "$TEXT" | wc -c) characters)"
 
       - name: Move CV into public directory
-        run: mkdir -p public && mv cv.pdf public/cv.pdf
+        run: mkdir -p public && mv cv.pdf public/mario-gutierrez-cv.pdf
 
       - name: Build site
         run: npm run build

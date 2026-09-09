@@ -15,7 +15,6 @@
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.4.0",
-    "node-latex": "^3.1.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-simple-typewriter": "^5.0.1",

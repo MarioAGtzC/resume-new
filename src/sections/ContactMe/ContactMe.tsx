@@ -81,7 +81,7 @@ export default function ContactMe({id}: SectionProps) {
 
     const now = Date.now();
     if (now - lastSubmit < 30000) {
-      toast.error('Espera un momento antes de enviar otro mensaje');
+      toast.error('Please wait a moment before sending another message');
       setBool(false);
       return;
     }
@@ -91,16 +91,16 @@ export default function ContactMe({id}: SectionProps) {
       const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
       if (res.status === 200) {
-        toast.success('Mensaje enviado correctamente');
+        toast.success('Message sent successfully');
         setName('');
         setEmail('');
         setMessage('');
       } else {
-        toast.error('Ocurrió un error al enviar el formulario');
+        toast.error('An error occurred while sending the form');
       }
     } catch (error) {
       console.log(error);
-      toast.error('Ocurrió un error al enviar el formulario');
+      toast.error('An error occurred while sending the form');
     } finally {
       setBool(false);
     }

@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Header />
-      <ToastContainer/>
+      <ToastContainer theme='dark'/>
       <SectionsContainer/>
       <ScrollToTop />
     </div>

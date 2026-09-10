@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Generate cv.tex from resume.json
-        run: npx tsx src/scripts/generate-cv-tex.ts
+        run: npx tsx scripts/generate-cv-tex.ts
 
       - name: Compile CV to PDF
         uses: xu-cheng/latex-action@v3

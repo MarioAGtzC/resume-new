@@ -1,0 +1,53 @@
+{
+  "header": {
+    "fullName": "Mario Alberto Gutiérrez Covián",
+    "jobTitle": "Full Stack Software Engineer",
+    "phone": "+52 (312) 103 1850",
+    "email": "marioagtzc@hotmail.com",
+    "cvLinks": [
+      { "label": "GitHub", "href": "https://github.com/MarioAGtzC" },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/marioagtz/" },
+      { "label": "Profile", "href": "https://mario-gutierrez.com/" }
+    ]
+  },
+
+  "cvSummary": "Software development with experience in backend APIs and microservices using Node.js. Experienced in designing and deploying serverless architectures on AWS, using services like Lambda, Lex, API Gateway, DynamoDB, S3 and CloudWatch. Comfortable working with both SQL and NoSQL databases.",
+
+  "keyAchievements": [
+    "Implemented Amazon Lex conversational bots integrated with Connect and Lambda, automating customer interactions and reducing manual support workload.",
+    "Enhanced IVR call flows and routing logic in Amazon Connect, improving user experience and reducing call handling time.",
+    "Led backend improvements and bug fixes that increased system stability and reduced production issues.",
+    "Collaborated on full-stack features using React and Redux, improving data flow efficiency and frontend performance.",
+    "Built a Python/Django microservice that generated vector embeddings from unstructured files, enabling semantic search and improving search result relevance while reducing query response time through optimized data retrieval."
+  ],
+
+  "technicalSkills": {
+    "languages": [
+      { "name": "JavaScript", "startDate": "2020-02" },
+      { "name": "TypeScript", "startDate": "2022-04" },
+      { "name": "Python", "startDate": "2023-04" },
+      { "name": "Java", "startDate": "2024-04" }
+    ],
+    "backend": "Node.js, Express.js, Nest.js, REST APIs, Django",
+    "frontend": "React.js, Next.js, Redux, Tailwind CSS, HTML5, CSS3",
+    "databases": "MySQL, MongoDB, PostgreSQL, DynamoDB, Redis, Firebase",
+    "cloud": "AWS (Lambda, Lex, CloudWatch, API Gateway, Connect, S3), Docker",
+    "other": "Git, Postman, Swagger, Agile/Scrum, Microservices Architecture, AI (GitHub Copilot, Claude, ChatGPT)"
+  },
+
+  "education": {
+    "degree": "Bachelor of Software Engineering",
+    "graduationDate": "August 2020",
+    "institution": "Universidad de Colima — Facultad de Telemática"
+  },
+
+  "languages": [
+    { "language": "Spanish", "level": "Native" },
+    {
+      "language": "English",
+      "level": "Professional Working Proficiency",
+      "certLabel": "(C1)",
+      "certLink": "https://cert.efset.org/en/SdWPH8"
+    }
+  ]
+}

@@ -123,6 +123,12 @@ button .load img {
   --fa-animation-duration: 1s;
 }
 
+.turnstile {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 @media (min-width: 576px) {
   .central-form h2 {
     font-size: revert;

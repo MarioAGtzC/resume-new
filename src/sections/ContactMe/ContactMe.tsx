@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type SubmitEvent } from 'react';
-import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { Typewriter } from 'react-simple-typewriter'
+import { Turnstile } from '@marsidev/react-turnstile';
 
 import ScreenHeading from '../../components/ScreenHeading/ScreenHeading';
 import type { SectionProps } from '../../config/sections';
@@ -15,23 +15,8 @@ import { ICON_MAP_REGULAR } from '../../constants/socialIcons';
 
 const { socialLinks } = profileJson as ProfileData;
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
-
-function getInitials(name: string): string {
-  return name
-    .trim()
-    .split(/\s+/)
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-}
-
-function getWordCount(text: string): number {
-  return text.trim().split(/\s+/).filter(Boolean).length;
-}
+const SITE_KEY = import.meta.env.VITE_SITE_KEY as string;
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL as string;
 
 export default function ContactMe({id}: SectionProps) {
   const [name, setName] = useState('');
@@ -40,6 +25,7 @@ export default function ContactMe({id}: SectionProps) {
   const [website, setWebsite] = useState('');
   const [bool, setBool] = useState(false);
   const [lastSubmit, setLastSubmit] = useState(0);
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   const handleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -50,6 +36,7 @@ export default function ContactMe({id}: SectionProps) {
   const handleMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
   };
+
   const submitForm = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -61,43 +48,37 @@ export default function ContactMe({id}: SectionProps) {
       return;
     }
 
-    setBool(true);
-
-    const templateParams = {
-      name,
-      message,
-      email,
-      initials: getInitials(name),
-      time: new Date().toLocaleString('es-MX', {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-      }),
-      word_count: getWordCount(message),
-      subject: `Re: Message from ${name} via website`,
-      origin: window.location.href,
-      device_info: navigator.userAgent,
-      ip: '', // TODO: populate server-side when migrating to a backend/API
-    };
+    if (!turnstileToken) {
+      toast.error('Please complete the verification before sending');
+      return;
+    }
 
     const now = Date.now();
     if (now - lastSubmit < 30000) {
       toast.error('Please wait a moment before sending another message');
-      setBool(false);
       return;
     }
     setLastSubmit(now);
 
-    try {
-      const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+    setBool(true);
 
-      if (res.status === 200) {
-        toast.success('Message sent successfully');
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        toast.error('An error occurred while sending the form');
+    try {
+      const res = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, turnstileToken }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Request failed');
       }
+
+      toast.success('Message sent successfully');
+      setName('');
+      setEmail('');
+      setMessage('');
+      setTurnstileToken('');
     } catch (error) {
       console.log(error);
       toast.error('An error occurred while sending the form');
@@ -140,6 +121,20 @@ export default function ContactMe({id}: SectionProps) {
 
             <label htmlFor='message'>Message</label>
             <textarea id='message' name='message' autoComplete='off' onChange={handleMessage} value={message} required />
+
+            <div className='turnstile'>
+              <Turnstile
+                siteKey={SITE_KEY}
+                onSuccess={setTurnstileToken}
+                onExpire={() => setTurnstileToken('')}
+                onError={() => setTurnstileToken('')}
+                options={{
+                  size: 'flexible',
+                  theme: 'dark',
+                  language: 'en'
+                }}
+              />
+            </div>
 
             <button type='submit' disabled={bool}>
               send

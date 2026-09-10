@@ -24,7 +24,7 @@
 .about-me-profile {
   display: none;
   width: 50%;
-  background-image: url("../../assets/AboutMe.png");
+  background-image: url('../../assets/AboutMe.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -45,7 +45,7 @@
 }
 
 .highlight-heading {
-  font-family: "Poppins Bold";
+  font-family: 'Poppins Bold';
   font-size: 14px;
   margin: 0 0 5px 0;
 }
@@ -68,22 +68,26 @@
 .about-me-options {
   display: flex;
   flex-direction: column;
+  .primary-btn, .highlighted-btn {
+    width: 100%;
+  }
+  .highlighted-btn {
+    margin-top: 24px 0 0 0 !important;
+  }
 }
 
-.about-me-options .highlighted-btn {
-  margin: 24px 0 0 0 !important;
-  width: 100%;
-}
 
 @media (min-width: 576px) {
   .about-me-options {
     display: block;
+    .primary-btn, .highlighted-btn {
+      width: 120px;
+    }
+    .highlighted-btn {
+      margin: 0 0 0 30px !important;
+    }
   }
 
-  .about-me-options .highlighted-btn {
-    margin: 0 0 0 30px !important;
-    width: 120px;
-  }
 }
 
 @media (min-width: 992px) {
@@ -105,7 +109,9 @@
     width: 72%;
   }
 
-  .about-me-options .highlighted-btn {
-    width: 160px;
+  .about-me-options {
+    .primary-btn, .highlighted-btn {
+      width: 160px;
+    }
   }
 }

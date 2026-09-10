@@ -42,20 +42,11 @@ function ExperienceItem({ experience, isFirst, isLast }: ExperienceItemProps) {
           </span>
         </div>
 
-        <div className='experience-footer'>
-          <ul className='experience-bullets'>
-            {bullets.map((bullet, index) => (
-              <li key={index} className='experience-bullet'>{bullet}</li>
-            ))}
-          </ul>
-          {/* <button
-            type='button'
-            className='experience-expand-btn highlighted-btn'
-            onClick={() => setIsModalOpen(true)}
-          >
-            <FontAwesomeIcon icon={faPlus} />
-          </button> */}
-        </div>
+        <ul className='experience-bullets'>
+          {bullets.map((bullet, index) => (
+            <li key={index} className='experience-bullet'>{bullet}</li>
+          ))}
+        </ul>
       </div>
 
       {isModalOpen && (
@@ -71,7 +62,7 @@ export default function Resume({id}: SectionProps) {
   return (
     <section className='resume-container' id={id}>
       <ScreenHeading title={'Resume'} subHeading={'My formal Bio Details'} />
-      <div className="resume-card-exterior">
+      <div className='resume-card-exterior'>
         <div className='resume-card'>
           <div className='experience-list'>
             {experiences.map((experience, index) => (

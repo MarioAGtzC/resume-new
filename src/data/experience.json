@@ -4,9 +4,14 @@
     "company": "TechBridge IT",
     "period": "April 2022 — Present",
     "bullets": [
-      "Develop and maintain backend services and AI-integrated microservices on AWS.",
-      "Build and maintain IVR self-service call flows and conversational bot logic.",
-      "Managed Infrastructure as Code with Terraform for AWS deployments."
+      "Developed and maintained backend services in TypeScript, Python, and Java, ensuring robust and maintainable software architecture.",
+      "Built and managed an AI-powered context management microservice using AWS Bedrock to auto-generate intelligent summaries of guest-agent chat conversations.",
+      "Managed Lambda function updates and deployments to improve performance and scalability across AWS-based services.",
+      "Designed and implemented Amazon Lex bots to enhance customer self-service experience.",
+      "Optimized call routing and workflows within Amazon Connect for improved efficiency.",
+      "Conducted performance analysis and testing on the Connect platform to ensure reliability.",
+      "Delivered bilingual (English/Spanish) support, refining Spanish language conversational flows.",
+      "Used Terraform to provision and manage AWS infrastructure supporting Lambda, Connect, and Lex environments."
     ]
   },
   {
@@ -14,9 +19,11 @@
     "company": "Tata Consultancy Services",
     "period": "November 2020 — April 2022",
     "bullets": [
-      "Built interfaces with React and Redux connected to APIs on AWS.",
-      "Designed database structures to maintain data integrity.",
-      "Collaborated with front-end teams to improve user experience."
+      "Built new UI sections using React, optimizing data retrieval from AWS-hosted APIs with Redux for state management.",
+      "Conducted data analysis to design and build efficient APIs, enabling seamless communication between systems.",
+      "Designed and managed database structures to ensure smooth information flow and maintain data integrity.",
+      "Collaborated closely with front-end developers to write functional, cohesive code that enhanced overall user experience.",
+      "Set up development and production environments using AWS toolsets, streamlining deployment and improving scalability."
     ]
   },
   {
@@ -24,9 +31,12 @@
     "company": "Kioscomático",
     "period": "February 2020 — November 2020",
     "bullets": [
-      "Developed RESTful APIs with Node.js, Express, and MySQL.",
-      "Created a reusable React component library.",
-      "Built cross-platform mobile applications with Flutter."
+      "Developed and maintained web applications using PHP and Node.js, with a focus on performance, security, and scalability.",
+      "Implemented RESTful APIs with Node.js, Express, and MySQL to support robust backend functionality.",
+      "Built a custom React component library to improve code reusability and long-term maintainability.",
+      "Leveraged React Hooks and Redux to ensure consistent state management and a cohesive user interface experience.",
+      "Designed and developed cross-platform mobile applications using Flutter, ensuring consistent performance across iOS and Android.",
+      "Integrated the Bloc pattern for efficient and scalable state management in Flutter applications."
     ]
   }
 ]

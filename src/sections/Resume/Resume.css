@@ -88,14 +88,14 @@
 .experience-role {
   margin: 0;
   font-size: 14px;
-  font-family: "Poppins SemiBold";
+  font-family: 'Poppins SemiBold';
   color: var(--white);
 }
 
 .experience-company {
   margin: 4px 0 0 0;
   font-size: 12px;
-  font-family: "Poppins SemiBold";
+  font-family: 'Poppins SemiBold';
   color: var(--primary);
 }
 
@@ -103,17 +103,9 @@
   background-color: var(--primary);
   padding: 4px 12px;
   font-size: 12px;
-  font-family: "Poppins SemiBold";
+  font-family: 'Poppins SemiBold';
   border-radius: 14px;
   white-space: nowrap;
-}
-
-.experience-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 10px;
 }
 
 .experience-bullets {
@@ -123,20 +115,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.experience-expand-btn {
-  
-  /* border: none;
-  color: var(--white);
-  background-color: var(--primary); */
-
-  border: none;
-  border-radius: 100%;
-  font-size: 18px;
-  width: 40px;
-  height: 40px;
-  align-self: flex-end;
 }
 
 .experience-bullet {
@@ -171,20 +149,6 @@
 
   .period-full {
     display: inline;
-  }
-}
-
-@media (min-width: 768px) {
-  .experience-footer {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .experience-expand-btn {
-    align-self: center;
-    flex-shrink: 0;
   }
 }
 

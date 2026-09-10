@@ -15,6 +15,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Detect changed files
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            cv:
+              - 'src/data/cv.json'
+              - 'src/data/experience.json'
+              - 'scripts/generate-cv-tex.ts'
+              - 'cv.tex'
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -25,18 +36,22 @@ jobs:
         run: npm ci
 
       - name: Generate cv.tex from resume.json
+        if: steps.filter.outputs.cv == 'true'
         run: npx tsx scripts/generate-cv-tex.ts
 
       - name: Compile CV to PDF
+        if: steps.filter.outputs.cv == 'true'
         uses: xu-cheng/latex-action@v3
         with:
           root_file: cv.tex
           latexmk_use_xelatex: true
 
       - name: Install poppler-utils
+        if: steps.filter.outputs.cv == 'true'
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
 
       - name: Validate PDF text extraction
+        if: steps.filter.outputs.cv == 'true'
         run: |
           TEXT=$(pdftotext cv.pdf - | tr -d '[:space:]')
           if [ -z "$TEXT" ]; then
@@ -46,6 +61,7 @@ jobs:
           echo "PDF text extraction check passed ($(echo "$TEXT" | wc -c) characters)"
 
       - name: Move CV into public directory
+        if: steps.filter.outputs.cv == 'true'
         run: mkdir -p public && mv cv.pdf public/mario-gutierrez-cv.pdf
 
       - name: Build site

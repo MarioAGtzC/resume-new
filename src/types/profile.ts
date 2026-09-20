@@ -1,6 +1,6 @@
 export interface SocialLink {
   href: string;
-  label: 'LinkedIn' | 'GitHub' | 'Instagram';
+  label: 'LinkedIn' | 'GitHub' | 'Instagram' | 'Portfolio';
 }
 
 export interface ProfileData {

@@ -11,7 +11,7 @@ function Timeline() {
   return (
     <div className='flex flex-col gap-1.5'>
       <ol
-        className='flex h-[34px] overflow-hidden rounded-[7px] border border-line'
+        className='flex h-8.5 overflow-hidden rounded-[7px] border border-line'
         aria-label='Career timeline, oldest to newest'
       >
         {chronological.map((role, index) => {
@@ -49,7 +49,7 @@ function Experience() {
         api={{ path: '/experience', status: `200 OK · ${experience.length} roles` }}
       />
 
-      <div className='flex flex-col gap-6 rounded-[10px] border border-line bg-surface p-5 sm:p-[22px]'>
+      <div className='flex flex-col gap-6 rounded-[10px] border border-line bg-surface p-5 sm:p-5.5'>
         <Timeline />
 
         <div className='flex flex-col gap-2.5'>
@@ -73,7 +73,7 @@ function Experience() {
               key={`${role.company}-${role.start}`}
               className='flex flex-wrap gap-x-7 gap-y-2.5 border-t border-line pt-5'
             >
-              <div className='flex max-w-[190px] flex-[1_1_170px] flex-col gap-1'>
+              <div className='flex max-w-47.5 flex-[1_1_170px] flex-col gap-1'>
                 <strong className='text-xl font-semibold'>{formatDuration(roleMonths(role))}</strong>
                 <span className='font-geist-mono text-xs text-muted'>
                   {formatMonth(parseMonth(role.start))} — {role.end ? formatMonth(parseMonth(role.end)) : 'Present'}
@@ -90,7 +90,7 @@ function Experience() {
                 <h3 className='text-xl font-semibold'>
                   {role.role} · {role.company}
                 </h3>
-                <ul className='flex list-disc flex-col gap-1.5 pl-[18px] leading-relaxed text-ink-2 marker:text-muted'>
+                <ul className='flex list-disc flex-col gap-1.5 pl-4.5 leading-relaxed text-ink-2 marker:text-muted'>
                   {role.bullets.map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}

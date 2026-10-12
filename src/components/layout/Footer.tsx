@@ -7,7 +7,7 @@ function Footer() {
 
   return (
     <footer className='border-t border-line'>
-      <div className='mx-auto flex max-w-[1160px] flex-col items-center gap-4 px-4 py-6 text-[13px] text-muted sm:flex-row sm:justify-between md:px-8'>
+      <div className='mx-auto flex max-w-290 flex-col items-center gap-4 px-4 py-6 text-[13px] text-muted sm:flex-row sm:justify-between md:px-8'>
         <p>
           © {new Date().getFullYear()} {SITE.name}
         </p>

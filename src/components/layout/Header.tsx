@@ -11,7 +11,7 @@ const navLinks = [
 function Header() {
   return (
     <header className='sticky top-0 z-50 border-b border-line bg-bar/90 backdrop-blur'>
-      <div className='mx-auto flex max-w-[1160px] items-center justify-between gap-4 px-4 py-3.5 md:px-8'>
+      <div className='mx-auto flex max-w-290 items-center justify-between gap-4 px-4 py-3.5 md:px-8'>
         <a href='#top' className='flex items-center gap-2 text-[15px] font-semibold text-ink'>
           <StatusDot />
           {SITE.name}

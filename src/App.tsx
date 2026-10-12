@@ -12,7 +12,7 @@ function App() {
     <div className='flex min-h-screen flex-col bg-canvas font-geist text-ink'>
       <Header />
       <ToastContainer theme='colored' />
-      <main className='mx-auto flex w-full max-w-[1160px] flex-1 flex-col gap-16 px-4 pb-20 md:px-8'>
+      <main className='mx-auto flex w-full max-w-290 flex-1 flex-col gap-16 px-4 pb-20 md:px-8'>
         <Hero />
         <Experience />
         <Skills />

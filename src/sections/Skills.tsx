@@ -22,7 +22,7 @@ function Skills() {
       <SectionHeading id='skills-title' title='Skills' api={{ path: '/skills', status: '200 OK' }} />
 
       <div className='flex flex-wrap gap-4'>
-        <div className='flex flex-[1_1_320px] flex-col gap-3.5 rounded-[10px] border border-line bg-surface p-5 sm:p-[22px]'>
+        <div className='flex flex-[1_1_320px] flex-col gap-3.5 rounded-[10px] border border-line bg-surface p-5 sm:p-5.5'>
           <h3 className='text-[13px] text-muted'>Languages · years of use</h3>
           <ul className='flex flex-col gap-3'>
             {languages.map((language) => (
@@ -42,7 +42,7 @@ function Skills() {
           </ul>
         </div>
 
-        <dl className='flex flex-[999_1_480px] flex-col gap-4 rounded-[10px] border border-line bg-surface p-5 sm:p-[22px]'>
+        <dl className='flex flex-[999_1_480px] flex-col gap-4 rounded-[10px] border border-line bg-surface p-5 sm:p-5.5'>
           {groups.map((group) => (
             <div key={group.label} className='flex flex-wrap items-baseline gap-x-4 gap-y-2'>
               <dt className='w-24 shrink-0 text-[13px] text-muted'>{group.label}</dt>

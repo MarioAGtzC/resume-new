@@ -80,7 +80,7 @@ function Contact() {
       <SectionHeading id='contact-title' title='Contact' api={{ method: 'POST', path: '/contact' }} />
 
       <div className='flex flex-wrap gap-4'>
-        <div className='flex flex-[1_1_280px] flex-col gap-4 rounded-[10px] border border-line bg-surface p-5 sm:p-[22px]'>
+        <div className='flex flex-[1_1_280px] flex-col gap-4 rounded-[10px] border border-line bg-surface p-5 sm:p-5.5'>
           <p className='leading-relaxed text-ink-2'>
             Hiring for a backend role or have a question about my experience? Send a message and I'll reply by email.
           </p>
@@ -103,18 +103,19 @@ function Contact() {
 
         <form
           onSubmit={submitForm}
-          className='relative flex flex-[999_1_480px] flex-col gap-3.5 rounded-[10px] border border-line bg-surface p-5 sm:p-[22px]'
+          className='relative flex flex-[999_1_480px] flex-col gap-3.5 rounded-[10px] border border-line bg-surface p-5 sm:p-5.5'
         >
-          <input
-            type='text'
-            name='contact_hp_field'
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
-            tabIndex={-1}
-            autoComplete='off'
-            aria-hidden='true'
-            className='absolute -left-[9999px] opacity-0'
-          />
+          {/* Honeypot: display:none keeps browser autofill (and people) out of it; simple bots still fill it. */}
+          <div hidden aria-hidden='true'>
+            <input
+              type='text'
+              name='hp_extra'
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              tabIndex={-1}
+              autoComplete='off'
+            />
+          </div>
 
           <div className='grid gap-3.5 sm:grid-cols-2'>
             <div className='flex flex-col gap-1.5'>
@@ -129,7 +130,7 @@ function Contact() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className={`${fieldStyles} h-[42px]`}
+                className={`${fieldStyles} h-10.5`}
               />
             </div>
             <div className='flex flex-col gap-1.5'>
@@ -144,7 +145,7 @@ function Contact() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className={`${fieldStyles} h-[42px]`}
+                className={`${fieldStyles} h-10.5`}
               />
             </div>
           </div>

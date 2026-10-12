@@ -1,19 +1,24 @@
 {
   "name": "Mario",
-  "tagline": "Building scalable backend systems and cloud infrastructure with AWS",
+  "tagline": "I build backend services and serverless systems on AWS with Node.js, TypeScript and Python. Full-stack when the product needs it.",
   "cvPath": "mario-gutierrez-cv.pdf",
   "cvDownload": "Mario Gutierrez CV.pdf",
-  "typewriterWords": [
-    "Full Stack Developer",
-    "MERN Stack Developer",
-    "Backend Engineer",
-    "Node.js Developer",
-    "Cloud Solutions Engineer"
-  ],
   "socialLinks": [
-    { "href": "https://www.linkedin.com/in/marioagtz/", "label": "LinkedIn" },
-    { "href": "https://github.com/MarioAGtzC/", "label": "GitHub" },
-    { "href": "https://www.instagram.com/mariogreenie/", "label": "Instagram" },
-    { "href": "https://greenie-studios.com/", "label": "Portfolio" }
+    {
+      "href": "https://www.linkedin.com/in/marioagtz/",
+      "label": "LinkedIn"
+    },
+    {
+      "href": "https://github.com/MarioAGtzC/",
+      "label": "GitHub"
+    },
+    {
+      "href": "https://www.instagram.com/mariogreenie/",
+      "label": "Instagram"
+    },
+    {
+      "href": "https://portfolio.mario-gutierrez.com/",
+      "label": "Portfolio"
+    }
   ]
 }

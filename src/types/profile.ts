@@ -8,6 +8,5 @@ export interface ProfileData {
   tagline: string;
   cvPath: string;
   cvDownload: string;
-  typewriterWords: string[];
   socialLinks: SocialLink[];
 }

@@ -1,14 +1,14 @@
 {
   "header": {
     "fullName": "Mario Alberto Gutiérrez Covian",
-    "jobTitle": "Full Stack Software Engineer",
+    "jobTitle": "Backend Software Engineer",
     "phone": "+52 (312) 103 1850",
     "email": "marioagtzc@hotmail.com",
     "cvLinks": [
       { "label": "GitHub", "href": "https://github.com/MarioAGtzC" },
       { "label": "LinkedIn", "href": "https://www.linkedin.com/in/marioagtz/" },
       { "label": "Profile", "href": "https://mario-gutierrez.com/" },
-      { "label": "Portfolio", "href": "https://greenie-studios.com/" }
+      { "label": "Portfolio", "href": "https://portfolio.mario-gutierrez.com/" }
     ]
   },
 
@@ -27,7 +27,7 @@
       { "name": "JavaScript", "startDate": "2020-02" },
       { "name": "TypeScript", "startDate": "2022-04" },
       { "name": "Python", "startDate": "2023-04" },
-      { "name": "Java", "startDate": "2024-04" }
+      { "name": "Java", "startDate": "2023-04" }
     ],
     "backend": "Node.js, Express.js, Nest.js, REST APIs, Django",
     "frontend": "React.js, Next.js, Redux, Tailwind CSS, HTML5, CSS3",
@@ -47,7 +47,7 @@
     {
       "language": "English",
       "level": "Professional Working Proficiency",
-      "certLabel": "(C1)",
+      "certLabel": "(C2)",
       "certLink": "https://cert.efset.org/en/SdWPH8"
     }
   ]

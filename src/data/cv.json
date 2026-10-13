@@ -32,7 +32,7 @@
     "backend": "Node.js, Express.js, Nest.js, REST APIs, Django",
     "frontend": "React.js, Next.js, Redux, Tailwind CSS, HTML5, CSS3",
     "databases": "MySQL, MongoDB, PostgreSQL, DynamoDB, Redis, Firebase",
-    "cloud": "AWS (Lambda, Lex, CloudWatch, API Gateway, Connect, S3), Docker",
+    "cloud": "AWS (Lambda, Lex, Connect, Bedrock, API Gateway, CloudWatch, S3), Terraform, Docker",
     "other": "Git, Postman, Swagger, Agile/Scrum, Microservices Architecture, AI (GitHub Copilot, Claude, ChatGPT)"
   },
 

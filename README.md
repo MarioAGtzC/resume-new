@@ -1,47 +1,74 @@
-# Mario Gutierrez — Personal Portfolio & Resume Site
+# Mario Gutiérrez — Resume Site
 
-A single-page personal website that presents Mario Gutierrez's professional profile, background, and work experience, and lets visitors download an always-up-to-date PDF CV or get in touch directly through the site.
+A single-page resume site for Mario Gutiérrez, Backend Software Engineer. It shows experience, skills, education and languages, offers a downloadable PDF CV, and has a spam-protected contact form. The website and the PDF are built from the same JSON data, so they always match.
 
-## The Problem It Solves
+**Live:** [mario-gutierrez.com](https://mario-gutierrez.com)
 
-A resume in a single static PDF format goes stale quickly and gives recruiters no sense of who the person behind it is beyond a wall of text. This project solves that by pairing a living, interactive portfolio (bio, highlights, experience timeline) with a professionally formatted PDF resume that is generated automatically from the same source of truth — so the online profile and the downloadable CV never drift out of sync. It also removes the friction and privacy concerns of publishing a personal email address by offering a built-in, spam-protected contact form as the way for recruiters and collaborators to reach out.
+## The problem it solves
 
-## My Role and Process
+Recruiters usually see a candidate twice: once as a web profile and once as a PDF attached to an application. When those are maintained separately, they drift apart: an updated role on the site, an outdated PDF in the inbox. This project keeps a single source of truth. Edit the data once, push, and both the website and the CV update together.
 
-This was an end-to-end solo build: design, front-end implementation, content architecture, and deployment pipeline.
+It also gives recruiters a direct way to get in touch without a personal email address published on the page, and the form is protected against automated spam.
 
-- **Content-first architecture** — All personal content (profile info, bio, skills, work experience, CV metadata) lives in structured JSON files (`src/data/*.json`) rather than being hardcoded in components, so the site's copy can be updated without touching UI code.
-- **Component-based UI** — Built as a scrolling, single-page React app with distinct sections (Home, About Me, Resume, Contact Me) driven by a central section registry (`src/config/sections.ts`), with scroll-position tracking to highlight the active section in navigation.
-- **Automated CV pipeline** — Rather than maintaining a PDF by hand, I wrote a script (`scripts/generate-cv-tex.ts`) that reads the same JSON data used by the website and generates a LaTeX (`cv.tex`) document, which is then compiled to PDF in CI. This guarantees the downloadable resume always reflects the latest content shown on the site.
-- **Hardened contact flow** — Implemented a contact form with bot protection, a honeypot field, and client-side rate limiting before messages are relayed to a backend API, treating the public-facing form as an abuse surface to defend rather than a trivial UI element.
-- **CI/CD deployment** — Set up a GitHub Actions workflow that installs dependencies, generates and compiles the CV, validates the resulting PDF actually contains extractable text (catching silent LaTeX/font failures before they reach production), builds the site, and deploys it to GitHub Pages under a custom domain.
+## My role and process
 
-## Technologies and Tools Used
+Solo project: design, implementation, CV pipeline and deployment.
 
-- **React 19 + TypeScript** — Core UI framework and type safety for all components, data models, and configuration.
-- **Vite (with Rolldown) + React Compiler** — Build tooling and dev server, with the React Compiler Babel plugin enabled for automatic component memoization/optimization.
-- **Cloudflare Turnstile** (`@marsidev/react-turnstile`) — Bot/CAPTCHA protection on the contact form, paired with a hidden honeypot field and a client-side cooldown to reduce spam submissions.
-- **RxJS** — Publishes scroll/viewport events (via a `Subject`) so the active section can be tracked and broadcast across the app without prop drilling.
-- **react-toastify** — User-facing toast notifications for contact form success/error states.
-- **LaTeX (XeLaTeX) via `xu-cheng/latex-action`** — Typesets the downloadable PDF resume from a generated `.tex` file, run as part of the CI pipeline rather than maintained as a static asset.
-- **Custom `tsx` build script** — Transforms structured JSON resume data into a LaTeX document at build time, keeping the website and the PDF resume as a single source of truth.
-- **poppler-utils (`pdftotext`)** — Used in CI as an automated quality gate that verifies the compiled PDF contains real, extractable text before it's published.
-- **GitHub Actions** — CI/CD pipeline: install, generate CV, compile PDF, validate PDF, build site, and deploy — fully automated on every push to `main`.
-- **GitHub Pages (custom domain)** — Static hosting for the production site, served from `mario-gutierrez.com`.
-- **ESLint + TypeScript-ESLint** — Static analysis and type-aware linting across the codebase.
+- **Content as data.** All resume content lives in `src/data/` (`cv.json`, `experience.json`, `profile.json`) and is typed in `src/types/`. Components only render it, so updating the resume never requires touching UI code.
+- **Derived, not hard-coded, figures.** Years of experience, number of companies, role durations, the career timeline and per-language "years of use" bars are calculated from start/end dates at render time (`src/lib/career.ts`, `src/lib/dates.ts`). Nothing goes stale as time passes.
+- **API-themed design.** Each section is labelled like an endpoint (`GET /experience`, `GET /skills`, `POST /contact`), matching the backend focus of the profile. The site supports light, dark and system themes, and the saved choice is applied before first paint to avoid a flash.
+- **CV generation pipeline.** A TypeScript script (`scripts/generate-cv-tex.ts`) reads the same JSON files and writes a LaTeX document. It escapes special characters and recomputes years per language. CI compiles that document to PDF and publishes it with the site.
+- **Hardened contact form.** Submissions go to a separate backend service ([contact-api](https://github.com/MarioAGtzC/contact-api)). Before anything is sent, the form requires a bot-verification token, silently discards submissions that fill a hidden honeypot field, and enforces a 30-second cooldown between messages.
+- **Automated deployment.** Every push to `main` triggers a GitHub Actions workflow that regenerates the CV, verifies it, builds the site and deploys it.
 
-## Results / Impact
+## Technologies and tools
 
-- Eliminated manual CV maintenance: the resume PDF is regenerated and validated automatically on every deploy, removing an entire class of "forgot to update the PDF" errors and guaranteeing consistency between the live site and the downloadable resume.
-- Replaced a static, one-shot resume with an interactive profile that highlights skills and experience in a more scannable, engaging format for recruiters.
-- Reduced spam/abuse risk on the public contact channel through layered protection (Turnstile challenge, honeypot field, and submission throttling) without requiring visitors to create an account or solve intrusive puzzles.
-- Fully automated, zero-touch deployment pipeline: a push to `main` is the only action required to ship content or design changes to production.
+**Language and framework**
+- **TypeScript** across the UI, the data types and the CV generation script.
+- **React 19** for the single-page UI, with the **React Compiler** enabled for automatic memoization.
+- **Vite** as dev server and production build tool.
 
-## Screenshots / Live Demo
+**Styling**
+- **Tailwind CSS v4** with custom design tokens for the light/dark color palette and self-hosted Geist variable fonts.
 
-- **Live site:** [mario-gutierrez.com](https://mario-gutierrez.com/)
-- Screenshots of the Home, About Me, Resume, and Contact sections should be added here (e.g. under `docs/screenshots/`) to give readers a visual preview without needing to open the live site.
+**Content and documents**
+- **Structured JSON** as the single source of truth for both the website and the PDF.
+- **LaTeX (XeLaTeX)** typesets the downloadable CV from the generated `.tex` file, compiled in CI via `xu-cheng/latex-action`.
+- **tsx** runs the TypeScript CV generator directly in the pipeline.
 
-## Repository
+**Integrations**
+- **Bot protection via Cloudflare Turnstile** on the contact form (`@marsidev/react-turnstile`).
+- **Contact backend** in a separate service ([contact-api](https://github.com/MarioAGtzC/contact-api)), called over HTTP with its URL injected at build time.
+- **Toast notifications** (`react-toastify`) for form success and error feedback.
 
-[github.com/MarioAGtzC/resume-new](https://github.com/MarioAGtzC/resume-new)
+**CI/CD and hosting**
+- **GitHub Actions**: install → generate `cv.tex` → compile PDF → check that text can be extracted from the PDF → build → deploy.
+- **PDF quality gate with poppler-utils (`pdftotext`)**: the build fails if the compiled CV has no extractable text, which catches font or LaTeX failures that would produce a blank or image-only PDF.
+- **GitHub Pages** with a custom domain for static hosting. Secrets (Turnstile site key, contact API URL) come from repository secrets at build time.
+
+**Testing**
+- No automated test suite yet. Quality checks are TypeScript type-checking (`tsc -b` in the build), ESLint, and the PDF validation step in CI.
+
+## Results and impact
+
+No usage metrics are tracked, so the impact is qualitative:
+
+- **The site and the CV can't fall out of sync.** Both are generated from the same data on every deploy, so the PDF a recruiter downloads always matches the website.
+- **Shipping an update takes one push.** No manual PDF export or upload step.
+- **Figures stay current automatically.** Experience totals and durations are computed from dates, not typed by hand.
+- **Spam protection without an account requirement.** Visitors write a message and send it. The Turnstile check, honeypot and cooldown filter out automated abuse.
+- **A broken CV can't be deployed.** The PDF validation step fails the pipeline before an unreadable CV reaches production.
+
+## Screenshots and live demo
+
+- **Live demo:** [mario-gutierrez.com](https://mario-gutierrez.com)
+- **Screenshots:** not yet included. Add captures of the hero, experience timeline, skills, and contact sections (in light and dark themes) to a `docs/screenshots/` folder and embed them here.
+- The repository includes a social link-preview card at [`public/og-image.png`](public/og-image.png). It is not a screenshot of the site.
+
+## Links
+
+- **Live site:** [mario-gutierrez.com](https://mario-gutierrez.com)
+- **Case study:** [portfolio.mario-gutierrez.com/portfolio/resume](https://portfolio.mario-gutierrez.com/portfolio/resume)
+- **Related repositories:**
+  - [portfolio-new](https://github.com/MarioAGtzC/portfolio-new): portfolio site with project case studies
+  - [contact-api](https://github.com/MarioAGtzC/contact-api): backend service behind the contact form

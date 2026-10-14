@@ -23,7 +23,7 @@ function Skills() {
 
       <div className='flex flex-wrap gap-4'>
         <div className='flex flex-[1_1_320px] flex-col gap-3.5 rounded-[10px] border border-line bg-surface p-5 sm:p-5.5'>
-          <h3 className='text-[13px] text-muted'>Languages · years of use</h3>
+          <h3 className='text-[13px] text-muted'>Languages &amp; runtimes · years of use</h3>
           <ul className='flex flex-col gap-3'>
             {languages.map((language) => (
               <li key={language.name} className='grid grid-cols-[96px_1fr_56px] items-center gap-3'>

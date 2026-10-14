@@ -25,6 +25,7 @@
   "technicalSkills": {
     "languages": [
       { "name": "JavaScript", "startDate": "2020-02" },
+      { "name": "Node.js", "startDate": "2020-02" },
       { "name": "TypeScript", "startDate": "2022-04" },
       { "name": "Python", "startDate": "2023-04" },
       { "name": "Java", "startDate": "2023-04" }

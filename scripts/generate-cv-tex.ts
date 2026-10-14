@@ -107,15 +107,15 @@ function calculateYears(startDate: string, asOf: Date = new Date()): number {
     (asOf.getFullYear() - start.getFullYear()) * 12 +
     (asOf.getMonth() - start.getMonth());
 
-  return Math.max(1, Math.round(totalMonths / 12));
+  return Math.floor(totalMonths / 12);
 }
 
 function formatLanguagesLine(languages: LanguageSkill[]): string {
   return languages
     .map((lang) => {
       const years = calculateYears(lang.startDate);
-      const unit = years === 1 ? 'year' : 'years';
-      return `${escapeLatex(lang.name)} (${years} ${unit})`;
+      const label = years < 1 ? '$<$1 year' : `${years}+ ${years === 1 ? 'year' : 'years'}`;
+      return `${escapeLatex(lang.name)} (${label})`;
     })
     .join(', ');
 }
@@ -232,7 +232,7 @@ ${buildItemizeList(keyAchievements)}
 % ================= TECHNICAL SKILLS =================
 \\section*{Technical Skills}
 \\begin{itemize}
-    \\item \\textbf{Languages:} ${formatLanguagesLine(technicalSkills.languages)}
+    \\item \\textbf{Languages \\& Runtimes:} ${formatLanguagesLine(technicalSkills.languages)}
     \\item \\textbf{Backend:} ${escapeLatex(technicalSkills.backend)}
     \\item \\textbf{Frontend:} ${escapeLatex(technicalSkills.frontend)}
     \\item \\textbf{Databases:} ${escapeLatex(technicalSkills.databases)}

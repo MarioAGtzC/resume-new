@@ -14,7 +14,7 @@ It also gives recruiters a direct way to get in touch without a personal email a
 
 Solo project: design, implementation, CV pipeline and deployment.
 
-- **Content as data.** All resume content lives in `src/data/` (`cv.json`, `experience.json`, `profile.json`) and is typed in `src/types/`. Components only render it, so updating the resume never requires touching UI code.
+- **Content as data.** All resume content lives in `src/data/` (`cv.json`, `experience.json`, `profile.json`, and `seo.json` for the page title and meta descriptions) and is typed in `src/types/`. Components only render it, so updating the resume never requires touching UI code.
 - **Derived, not hard-coded, figures.** Years of experience, number of companies, role durations, the career timeline and per-language "years of use" bars are calculated from start/end dates at render time (`src/lib/career.ts`, `src/lib/dates.ts`). Nothing goes stale as time passes.
 - **API-themed design.** Each section is labelled like an endpoint (`GET /experience`, `GET /skills`, `POST /contact`), matching the backend focus of the profile. The site supports light, dark and system themes, and the saved choice is applied before first paint to avoid a flash.
 - **CV pipeline.** The Site Content Manager generates `cv.tex` from the same data and commits it with every publish. CI compiles that document to PDF and publishes it with the site.
